@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+body, html {
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  /* App colors */
+  --blue: #5577D2;
+  --purple: #5758F9;
+  --black: #313131;
+  --dark-grey: #4B4B4B;
+  --grey: #B2B2B2;
+  --light-grey: #F2F2F2;
+  --white: #F8F8F8;
+}
+h1,h2,h3,h4,h5,h6,p,span,button,input {
+  font-family: 'Inter', sans-serif;
+}
+a:hover {
+  text-decoration: none;
+}
+input, select {
+  border: none;
+  outline: 0;
+}
+input:focus {
+  border: none;
+  outline: 0;
+}
+select:focus {
+  border: none;
+  outline: 0;
+}
+#app {
+  background-color: var(--white);
+}
