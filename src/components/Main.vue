@@ -142,10 +142,8 @@ export default {
     const getHoraActual = () => {
       if (horaActual < 10) {
         horaActual = "0" + horaActual;
-        hora.value = horaActual;
-      } else {
-        hora.value = horaActual;
       }
+      hora.value = horaActual;
     }
     get.addEventListener('click', ()=> {
       window.location.href = "#resultado";
@@ -160,21 +158,15 @@ export default {
               horario = horario.datetime;
               horario = horario.slice(11,horario.length-19);
               horario = parseInt(horario);
-              if (horario > horaActual) {
-                diferenciaHoraria = horario - horaActual
-              } else {
-                diferenciaHoraria = horaActual - horario
-              }
-              console.log('dif:', diferenciaHoraria);
+              // DIFERENCIA HORARIA:
+              diferenciaHoraria = horaActual - horario
+              console.log('Hora tuya actual: ',horaActual);
+              console.log('Hora destino actual: ',horario)
+              console.log('Diferencia horaria:', diferenciaHoraria);
               hora = hora.value;
               hora = parseInt(hora);
-              console.log(hora);
-              console.log(horario);
-              if (horario > hora) {
-                horarioFinal = hora + diferenciaHoraria;
-              } else if (hora > horario) {
-                horarioFinal = hora - diferenciaHoraria;
-              }
+              console.log("Hora elegida: ", hora); 
+              horarioFinal = hora - diferenciaHoraria;
               console.log('hora final ',horarioFinal);
               city = city.split('_').join(' ');
               illustration.style.backgroundImage = `url('/illustration2.png')`;
