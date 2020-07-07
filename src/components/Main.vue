@@ -159,14 +159,15 @@ export default {
               horario = horario.slice(11,horario.length-19);
               horario = parseInt(horario);
               // DIFERENCIA HORARIA:
-              diferenciaHoraria = horaActual - horario
+              diferenciaHoraria = horaActual - horario;
               console.log('Hora tuya actual: ',horaActual);
-              console.log('Hora destino actual: ',horario)
+              console.log('Hora destino actual: ',horario);
               console.log('Diferencia horaria:', diferenciaHoraria);
               hora = hora.value;
               hora = parseInt(hora);
               console.log("Hora elegida: ", hora); 
               horarioFinal = hora - diferenciaHoraria;
+              console.log('JAJAJAJAJA');
               console.log('hora final ',horarioFinal);
               city = city.split('_').join(' ');
               illustration.style.backgroundImage = `url('/illustration2.png')`;
