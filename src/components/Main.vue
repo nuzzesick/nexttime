@@ -154,7 +154,7 @@ export default {
     let get = document.querySelector('#get');
     let horaActual = new Date().getHours();
     const obtenerUbicacionUsuario = ubicacionUsuario => new Promise((resolve,reject)=> {
-      const url = 'http://worldtimeapi.org/api/ip'
+      const url = 'https://worldtimeapi.org/api/ip'
       const xhr = new XMLHttpRequest();
       xhr.open('GET', url, true);
       xhr.onload = () => {
@@ -637,7 +637,7 @@ export default {
       }
     });
     const obtenerHorario = horario => new Promise((resolve,reject)=> {
-      const url = `http://worldtimeapi.org/api/${continent.value}/${city}`
+      const url = `https://worldtimeapi.org/api/${continent.value}/${city}`
       const xhr = new XMLHttpRequest();
       xhr.open('GET', url, true);
       xhr.onload = () => {
