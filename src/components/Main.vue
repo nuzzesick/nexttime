@@ -158,21 +158,17 @@ export default {
               horario = horario.datetime;
               horario = horario.slice(11,horario.length-19);
               horario = parseInt(horario);
-              // DIFERENCIA HORARIA:
               diferenciaHoraria = horaActual - horario;
-              console.log('Hora tuya actual: ',horaActual);
-              console.log('Hora destino actual: ',horario);
-              console.log('Diferencia horaria:', diferenciaHoraria);
               hora = hora.value;
               hora = parseInt(hora);
-              console.log("Hora elegida: ", hora); 
               horarioFinal = hora - diferenciaHoraria;
-              console.log('JAJAJAJAJA');
-              console.log('hora final ',horarioFinal);
               city = city.split('_').join(' ');
               illustration.style.backgroundImage = `url('/illustration2.png')`;
               if (horarioFinal >= 24) {
                 horarioFinal = horarioFinal - 24;
+              }
+              if (horarioFinal <= -1) {
+                horarioFinal = horarioFinal + 24
               }
               if (hora < 10 && horarioFinal < 10) {
                   hora = "0" + hora;
@@ -186,34 +182,32 @@ export default {
                 }
               if (horario != horarioFinal) {
                 if (hora != '01' && horarioFinal != '01') {
-                  resultado.innerHTML = `Cuando sean las ${hora}hs en ${final}, serán las ${horarioFinal}hs en ${city}.`;
+                  resultado.innerHTML = `<span class="done">Cuando sean las ${hora}hs en ${final}, serán las ${horarioFinal}hs en ${city}.</span><br><span class="hour-difference">Diferencia horaria: ${diferenciaHoraria}</span>`;
                 } else if (hora == '01' && horarioFinal != '01') {
-                  resultado.innerHTML = `Cuando sea la ${hora}h en ${final}, serán las ${horarioFinal}hs en ${city}.`;
+                  resultado.innerHTML = `<span class="done">Cuando sea la ${hora}h en ${final}, serán las ${horarioFinal}hs en ${city}.</span><br><span class="hour-difference">Diferencia horaria: ${diferenciaHoraria}</span>`;
                 } else if (hora != '01' && horarioFinal == '01') {
-                  resultado.innerHTML = `Cuando sean las ${hora}hs en ${final}, será la ${horarioFinal}h en ${city}.`;
+                  resultado.innerHTML = `<span class="done">Cuando sean las ${hora}hs en ${final}, será la ${horarioFinal}h en ${city}.</span><br><span class="hour-difference">Diferencia horaria: ${diferenciaHoraria}</span>`;
                 } else if (hora == '01' && horarioFinal == '01') {
-                  resultado.innerHTML = `Cuando sea la ${hora}h en ${final}, será la ${horarioFinal}h en ${city}.`;
+                  resultado.innerHTML = `<span class="done">Cuando sea la ${hora}h en ${final}, será la ${horarioFinal}h en ${city}.</span><br><span class="hour-difference">Diferencia horaria: ${diferenciaHoraria}</span>`;
                 }
               } else if (horario == horarioFinal) {
                 if (hora != '01' && horarioFinal != '01') {
-                  resultado.innerHTML = `Son las ${hora}hs en ${final}, y en ${city} son las ${horarioFinal}hs.`;
+                  resultado.innerHTML = `<span class="done">Son las ${hora}hs en ${final}, y en ${city} son las ${horarioFinal}hs.</span><br><span class="hour-difference">Diferencia horaria: ${diferenciaHoraria}</span>`;
                 } else if (hora == '01' && horarioFinal != '01') {
-                  resultado.innerHTML = `Es la ${hora}h en ${final}, y en ${city} son las ${horarioFinal}hs`;
+                  resultado.innerHTML = `<span class="done">Es la ${hora}h en ${final}, y en ${city} son las ${horarioFinal}hs.</span><br><span class="hour-difference">Diferencia horaria: ${diferenciaHoraria}</span>`;
                 } else if (hora != '01' && horarioFinal == '01') {
-                  resultado.innerHTML = `Son las ${hora}hs en ${final}, y en ${city} es la ${horarioFinal}h.`;
+                  resultado.innerHTML = `<span class="done">Son las ${hora}hs en ${final}, y en ${city} es la ${horarioFinal}h.</span><br><span class="hour-difference">Diferencia horaria: ${diferenciaHoraria}</span>`;
                 } else if (hora == '01' && horarioFinal == '01') {
-                  resultado.innerHTML = `Es la ${hora}h en ${final}, y en ${city} es la ${horarioFinal}h.`;
+                  resultado.innerHTML = `<span class="done">Es la ${hora}h en ${final}, y en ${city} es la ${horarioFinal}h.</span><br><span class="hour-difference">Diferencia horaria: ${diferenciaHoraria}</span>`;
                 }
               }
               hora = document.querySelector('#hour');
             }
           }
         } else {
-        console.log('falla');
         resultado.innerHTML = `¡Ups! Parece que te faltaron completar datos.`
       }
       } else {
-        console.log('falla');
         resultado.innerHTML = `¡Ups! Parece que te faltaron completar datos.`
       }
     });
@@ -230,9 +224,6 @@ export default {
       }
       xhr.send();
     });
-    const obtener = (horario) => {
-      console.log(horario);
-    }
   },
   methods: {
     onChange(event) {
@@ -388,9 +379,20 @@ export default {
   background-repeat: no-repeat;
 }
 .resultado {
+  display: block;
+  margin-bottom: 20vh;
+}
+.done {
+  display: block;
   color: var(--dark-gray);
   font-weight: 500;
-  margin-bottom: 20vh;
+  margin-bottom: 0.8rem;
+}
+.hour-difference {
+  display: block;
+  font-size: 1.3rem;
+  color: var(--dark-gray);
+  font-weight: 500;
 }
 /* Mobile */
 @media only screen and (max-width: 768px) {
