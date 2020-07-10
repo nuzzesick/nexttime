@@ -15,6 +15,7 @@
   -webkit-box-shadow: 0px 4px 20px #EDEDED;
   -moz-box-shadow: 0px 4px 20px #EDEDED;
   box-shadow: 0px 4px 20px #EDEDED;
+  z-index: 2;
 }
 .footer-container {
   position: relative;
